@@ -7,7 +7,7 @@
       <Description>The reference client that allows query, write and management (bucket, organization, users) for the InfluxDB 2.x.</Description>
         <Authors>influxdb-client-csharp Contributors</Authors>
         <AssemblyName>InfluxDB.Client</AssemblyName>
-        <VersionPrefix>4.13.0</VersionPrefix>
+        <VersionPrefix>4.19.0</VersionPrefix>
         <VersionSuffix>dev</VersionSuffix>
 
         <PackageId>InfluxDB.Client</PackageId>
@@ -28,6 +28,10 @@
         <SignAssembly>true</SignAssembly>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
     <ItemGroup>
         <None Include="..\Assets\influxdata.jpg" Pack="true" PackagePath="" />
         <None Include=".\README.md" Pack="true" PackagePath="\" />
@@ -36,11 +40,11 @@
 
     <ItemGroup>
         <PackageReference Include="JsonSubTypes" Version="2.0.1" />
-        <PackageReference Include="Microsoft.Extensions.ObjectPool" Version="7.0.8" />
+        <PackageReference Include="Microsoft.Extensions.ObjectPool" Version="8.0.8" />
         <PackageReference Include="Microsoft.Net.Http.Headers" Version="2.2.8" />
-        <PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
-        <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.1" />
-        <PackageReference Include="System.Reactive" Version="6.0.0" />
+        <PackageReference Include="System.Collections.Immutable" Version="8.0.0" />
+        <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+        <PackageReference Include="System.Reactive" Version="6.0.1" />
     </ItemGroup>
 
 </Project>

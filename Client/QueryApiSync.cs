@@ -75,6 +75,10 @@ namespace InfluxDB.Client
 
     /// <summary>
     /// The synchronous version of QueryApi.
+    ///
+    /// The client uses <see cref="System.Net.Http.HttpClient"/> to send the request and parse responses to InfluxDB 2.0.
+    /// The `HttpClient` is supposed to use maximus size of the body to int.MaxValue. 
+    /// If you want to query large data, use <see cref="QueryApi.QueryAsync"/> method.
     /// </summary>
     public class QueryApiSync : AbstractQueryClient, IQueryApiSync
     {
@@ -136,14 +140,11 @@ namespace InfluxDB.Client
 
             var consumer = new FluxResponseConsumerPoco<T>(poco => { measurements.Add(poco); }, Mapper);
 
-            RestRequest QueryFn(Func<HttpResponseMessage, RestRequest, RestResponse> advancedResponseWriter)
-            {
-                return _service
-                    .PostQueryWithRestRequest(null, "application/json", null, optionsOrg, null, query)
-                    .AddAdvancedResponseHandler(advancedResponseWriter);
-            }
+            var restRequest = _service
+                .PostQueryWithRestRequest(null, "application/json", null, optionsOrg, null, query,
+                    HttpCompletionOption.ResponseHeadersRead);
 
-            QuerySync(QueryFn, consumer, ErrorConsumer, EmptyAction, cancellationToken);
+            QuerySync(restRequest, consumer, ErrorConsumer, EmptyAction, cancellationToken);
 
             return measurements;
         }
@@ -188,14 +189,11 @@ namespace InfluxDB.Client
             var optionsOrg = org ?? _options.Org;
             Arguments.CheckNonEmptyString(optionsOrg, OrgArgumentValidation);
 
-            RestRequest QueryFn(Func<HttpResponseMessage, RestRequest, RestResponse> advancedResponseWriter)
-            {
-                return _service
-                    .PostQueryWithRestRequest(null, "application/json", null, optionsOrg, null, query)
-                    .AddAdvancedResponseHandler(advancedResponseWriter);
-            }
+            var restRequest = _service
+                .PostQueryWithRestRequest(null, "application/json", null, optionsOrg, null, query,
+                    HttpCompletionOption.ResponseHeadersRead);
 
-            QuerySync(QueryFn, consumer, ErrorConsumer, EmptyAction, cancellationToken);
+            QuerySync(restRequest, consumer, ErrorConsumer, EmptyAction, cancellationToken);
 
             return consumer.Tables;
         }

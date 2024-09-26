@@ -123,7 +123,9 @@ jobs:
       shell: bash
     steps:
       - checkout
-      - run: choco install influxdb1 --version=1.8.0
+      - run: |
+          choco feature enable -n allowGlobalConfirmation
+          choco install influxdb1 --version=1.8.0
       - run: export INFLUXDB_HTTP_FLUX_ENABLED=true 
       - run:
           name: "Start InfluxDB"
@@ -156,7 +158,7 @@ jobs:
           name: Check compilation warnings
           command: |
             dotnet clean --configuration Release
-            dotnet build --configuration Release -warnAsError -warnAsMessage:CS0618,NETSDK1138
+            dotnet build --configuration Release -warnAsError -warnAsMessage:CS0419,CS0618,CS1591,CS1573,CS1574,NETSDK1138
       
   check-code-formatting:
     docker:

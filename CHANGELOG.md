@@ -1,23 +1,134 @@
-## 4.13.0 [unreleased]
+## 4.19.0 [unreleased]
+
+## 4.18.0 [2024-09-13]
+
+### Features:
+1. [#658](https://github.com/influxdata/influxdb-client-csharp/pull/658): Add HttpHeaders as `IEnumerable<RestSharp.HttpParameter>` to `HttpException` and facilitate access in `WriteErrorEvent`.  Includes new example `HttpErrorHandling`.
+ 
+### Dependencies
+Update dependencies:
+
+#### Build:
+  - [#659](https://github.com/influxdata/influxdb-client-csharp/pull/659): `RestSharp` to `112.0.0`
+
+#### Test:
+  - [#663](https://github.com/influxdata/influxdb-client-csharp/pull/663): `WireMock.Net` to `1.6.1`    
+
+## 4.17.0 [2024-08-12]
+
+### Breaking Changes
+
+#### API
+
+- `ApiResponse` headers has been changed to `IEnumerable<(string Name, string Value)>`
+
+### Bug Fixes
+1. [#649](https://github.com/influxdata/influxdb-client-csharp/pull/649): Use HttpCompletionOption.ResponseHeadersRead for asynchronous QueryApi
+
+### Dependencies
+Update dependencies:
+
+#### Build:
+  - [#650](https://github.com/influxdata/influxdb-client-csharp/pull/650): `RestSharp` to `111.4.0`
+  - [#662](https://github.com/influxdata/influxdb-client-csharp/pull/662): `Microsoft.Extensions.ObjectPool` to `8.0.8`
+
+#### Test:
+  - [#652](https://github.com/influxdata/influxdb-client-csharp/pull/652): `NUnit3TestAdapter` to `4.6.0`
+  - [#654](https://github.com/influxdata/influxdb-client-csharp/pull/654): `WireMock.Net` to `1.5.62`
+  - [#661](https://github.com/influxdata/influxdb-client-csharp/pull/661): `Microsoft.NET.Test.Sdk` to `17.11.0`
+
+#### Examples:
+  - [#664](https://github.com/influxdata/influxdb-client-csharp/pull/664): `Radzen.Blazor` to `5.1.6`
+
+## 4.16.0 [2024-06-24]
+
+### Features:
+  - [#633](https://github.com/influxdata/influxdb-client-csharp/pull/633): Add package XML documentation.
+
+### Dependencies
+Update dependencies:
+
+#### Build:
+  - [#634](https://github.com/influxdata/influxdb-client-csharp/pull/634): `CsvHelper` to `32.0.3`
+  - [#635](https://github.com/influxdata/influxdb-client-csharp/pull/635): `Microsoft.Extensions.ObjectPool` to `8.0.6`
+  - [#638](https://github.com/influxdata/influxdb-client-csharp/pull/638): `System.Reactive` to `6.0.1`
+    
+#### Test:
+  - [#639](https://github.com/influxdata/influxdb-client-csharp/pull/639): `Microsoft.NET.Test.Sdk` to `17.10.0`
+  - [#641](https://github.com/influxdata/influxdb-client-csharp/pull/641): `WireMock.Net` to `1.5.56`
+
+#### Examples:
+  - [#636](https://github.com/influxdata/influxdb-client-csharp/pull/636): `Radzen.Blazor` to `4.32.3`
+    
+## 4.15.0 [2024-05-17]
+
+### Bug Fixes
+1. [#632](https://github.com/influxdata/influxdb-client-csharp/pull/632): Use HttpCompletionOption.ResponseHeadersRead for streaming
+
+### Dependencies
+Update dependencies:
+
+#### Build:
+  - [#619](https://github.com/influxdata/influxdb-client-csharp/pull/619): `CsvHelper` to `31.0.2`
+  - [#629](https://github.com/influxdata/influxdb-client-csharp/pull/629): `Microsoft.Extensions.ObjectPool` to `8.0.3`
+
+#### Test:
+  - [#608](https://github.com/influxdata/influxdb-client-csharp/pull/608): `NUnit` to `3.14.0`
+  - [#616](https://github.com/influxdata/influxdb-client-csharp/pull/616): `Microsoft.NET.Test.Sdk` to `17.9.0`
+  - [#626](https://github.com/influxdata/influxdb-client-csharp/pull/626): `coverlet.collector` to `6.0.2`
+  - [#628](https://github.com/influxdata/influxdb-client-csharp/pull/628): `WireMock.Net` to `1.5.51`
+
+#### Examples:
+  - [#627](https://github.com/influxdata/influxdb-client-csharp/pull/627): `Radzen.Blazor` to `4.29.1`
+  - [#622](https://github.com/influxdata/influxdb-client-csharp/pull/622): `NodaTime` to `3.1.11`
+
+## 4.14.0 [2023-11-07]
+
+### Features
+
+1. [#590](https://github.com/influxdata/influxdb-client-csharp/pull/590): Allows disable Trace verbose messages
+
+### Dependencies
+Update dependencies:
+
+#### Build:
+  - [#597](https://github.com/influxdata/influxdb-client-csharp/pull/597): `Microsoft.Extensions.ObjectPool` to `8.0.0`
+  - [#572](https://github.com/influxdata/influxdb-client-csharp/pull/572): `NodaTime.Serialization.JsonNet` to `3.1.0`
+  - [#595](https://github.com/influxdata/influxdb-client-csharp/pull/595): `System.Collections.Immutable` to `8.0.0`
+  - [#599](https://github.com/influxdata/influxdb-client-csharp/pull/599): `System.Configuration.ConfigurationManager` to `8.0.0`
+
+#### Examples:
+  - [#593](https://github.com/influxdata/influxdb-client-csharp/pull/593): `Radzen.Blazor` to `4.22.1`
+
+#### Test:
+  - [#596](https://github.com/influxdata/influxdb-client-csharp/pull/596): `WireMock.Net` to `1.5.40`
+  - [#598](https://github.com/influxdata/influxdb-client-csharp/pull/598): `Microsoft.NET.Test.Sdk` to `17.8.0`
+  - [#568](https://github.com/influxdata/influxdb-client-csharp/pull/568): `Moq` to `4.20.69`
+  - [#594](https://github.com/influxdata/influxdb-client-csharp/pull/594): `Tomlyn.Signed` to `0.17.0`
+
+## 4.13.0 [2023-07-28]
 
 ### Features
   1. [#528](https://github.com/influxdata/influxdb-client-csharp/pull/528): Add HttpClient as a part of InfluxDBClientOptions
   1. [#500](https://github.com/influxdata/influxdb-client-csharp/pull/500): Support String functions in Linq
+
+### Bug Fixes
+1. [#555](https://github.com/influxdata/influxdb-client-csharp/pull/555): Chaining multiple conditions in LINQ queries
 
 ### Dependencies
 Update dependencies:
 
 #### Build:
   - [#525](https://github.com/influxdata/influxdb-client-csharp/pull/525): `System.Reactive` to `6.0.0`
-  - [#540](https://github.com/influxdata/influxdb-client-csharp/pull/540): `Microsoft.Extensions.ObjectPool` to `7.0.8`
+  - [#549](https://github.com/influxdata/influxdb-client-csharp/pull/549): `Microsoft.Extensions.ObjectPool` to `7.0.9`
 
 #### Examples:
-  - [#542](https://github.com/influxdata/influxdb-client-csharp/pull/542): `Radzen.Blazor` to `4.13.3`
+  - [#556](https://github.com/influxdata/influxdb-client-csharp/pull/556): `Radzen.Blazor` to `4.14.1`
 
 #### Test:
-  - [#536](https://github.com/influxdata/influxdb-client-csharp/pull/536): `Microsoft.NET.Test.Sdk` to `17.6.2`
+  - [#543](https://github.com/influxdata/influxdb-client-csharp/pull/543): `Microsoft.NET.Test.Sdk` to `17.6.3`
   - [#524](https://github.com/influxdata/influxdb-client-csharp/pull/524): `coverlet.collector` to `6.0.0`
-  - [#541](https://github.com/influxdata/influxdb-client-csharp/pull/541): `WireMock.Net` to `1.5.29`
+  - [#550](https://github.com/influxdata/influxdb-client-csharp/pull/550): `WireMock.Net` to `1.5.32`
   - [#529](https://github.com/influxdata/influxdb-client-csharp/pull/529): `NUnit3TestAdapter` to `4.5.0`
 
 ## 4.12.0 [2023-04-28]
